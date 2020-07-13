@@ -3,7 +3,10 @@ import styles from './header.module.css'
 
 const Header = () => (
     <header className={styles.header}>
-        <img src={`/logo.jpeg`}/>
+        <ul>
+            <img src={`/logo.jpeg`}/>
+            <li>Shop Nu</li>
+        </ul>
         <ul>
             <li>Login</li>
             <li>Winkelwagen</li>

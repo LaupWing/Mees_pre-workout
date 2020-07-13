@@ -4,6 +4,8 @@
     box-sizing: border-box;
     font-family: 'Open Sans';
     --highlight-color: #1a2754;
+    --secundair-font-color: white;
+    --main-font-color: black;
 }
 
 .container{

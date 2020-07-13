@@ -2,7 +2,12 @@
     background-color: var(--highlight-color);
     display: flex;
     justify-content: space-between;
+    color: var(--secundair-font-color);
 }
 .header img{
     width: 50px;
+}
+.header ul{
+    display: flex;
+    align-items: center;
 }
