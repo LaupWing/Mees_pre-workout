@@ -1,5 +1,7 @@
 .header{
     background-color: var(--highlight-color);
+    display: flex;
+    justify-content: space-between;
 }
 .header img{
     width: 50px;
