@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default Header = () => (
+const Header = () => (
     <header>
-
+        <img src={`/logo.jpg`}/>
     </header>
-) 
+)
+
+export default Header

@@ -1,11 +1,16 @@
 import React from 'react'
+import '../../styles/index.css'
+import Header from '../header/header'
 
-export default Layout = (props)=>{
+const Layout = (props)=>{
     return (
         <div>
+            <Header/>
             <main>
                 {props.children}
             </main>
         </div>
     )
 }
+
+export default Layout
