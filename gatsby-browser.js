@@ -1,6 +1,6 @@
 const React = require("react")
-const Header = require("./src/components/header/header").default
+const Layout = require("./src/components/layout/layout").default
 
-exports.wrapPageElement = ({ element, props }) => {
-  return <Header>{element}</Header>
+exports.wrapPageElement = ({ children, props }) => {
+  return <Layout {...props}>{children}</Layout>
 }
