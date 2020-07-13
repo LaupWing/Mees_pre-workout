@@ -4,3 +4,8 @@
     box-sizing: border-box;
     --highlight-color: #1a2754;
 }
+
+.container{
+    max-width: 1000px;
+    width: 100vw;
+}

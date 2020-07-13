@@ -3,7 +3,7 @@ import styles from './header.module.css'
 
 const Header = () => (
     <header className={styles.header}>
-        <img src={`/logo.jpg`}/>
+        <img src={`/logo.jpeg`}/>
     </header>
 )
 
