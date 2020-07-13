@@ -1,0 +1,6 @@
+.header{
+    background-color: var(--highlight-color);
+}
+.header img{
+    width: 50px;
+}
