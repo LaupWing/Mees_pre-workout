@@ -1,0 +1,6 @@
+.footer{
+    background-color: var(--highlight-color);
+    height: 10vh;
+    align-self: flex-end;
+    width: 100%;
+}

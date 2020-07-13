@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/index.css'
 import Header from '../header/header'
+import Footer from '../footer/footer'
 import styles from './layout.module.css'
 
 const Layout = (props)=>{
@@ -10,6 +11,7 @@ const Layout = (props)=>{
             <main className={'container ' + styles.content}>
                 {props.children}
             </main>
+            <Footer/>
         </div>
     )
 }
