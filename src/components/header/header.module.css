@@ -12,3 +12,6 @@
     display: flex;
     align-items: center;
 }
+.header li{
+    margin: 0 1.5rem;
+}
