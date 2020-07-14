@@ -1,0 +1,26 @@
+.product{
+    width: 250px;
+    border: solid 1px #ccc;
+    margin: 10px;
+}
+.product h2{
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 0;
+    font-weight: normal;
+}
+
+.product img{
+    width: 100%;
+}
+
+.product .price{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.buyNow{
+    display: flex;
+}
