@@ -1,6 +1,20 @@
 .footer{
     background-color: var(--highlight-color);
-    height: 10vh;
+    padding: 30px;
     align-self: flex-end;
+    display: flex;
+    justify-content: center;
     width: 100%;
+    color: #ccc;
+}
+
+.footer ul{
+    display: flex;
+}
+.footer li{
+    margin: 0 10px;
+}
+.footer .active{
+    font-weight: bold;
+    color: var(--secundair-font-color);
 }
