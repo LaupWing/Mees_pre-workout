@@ -25,33 +25,33 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
     }
 
     return(
-        <Link to={`/producten/${id}`}>
-            <div
-                className={styles.product}
-                onMouseEnter={()=>setShowQuantity(true)}
-                onMouseLeave={()=>setShowQuantity(false)}
-            >
-                <h2>{productNaam}</h2>
-                <div>
+        <div
+            className={styles.product}
+            onMouseEnter={()=>setShowQuantity(true)}
+            onMouseLeave={()=>setShowQuantity(false)}
+        >
+            <h2>{productNaam}</h2>
+            <div>
+                <Link to={`/producten/${id}`}>
                     <img alt="afbeelding" src={fotoUrl}/>
-                </div>
-                <p className={styles.price}>{converPrice(prijs)}</p>
-                <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
-                    <button>
-                        Koop Nu
-                    </button>
-                    <p className={styles.quantity}>{quantity}</p>
-                    <button 
-                        onClick={()=>addOrAbduct(true)} 
-                        className={styles.calc}
-                    >+</button>
-                    <button 
-                        onClick={()=>addOrAbduct(false)}
-                        className={styles.calc}
-                    >-</button>
-                </div>
+                </Link>
             </div>
-        </Link>
+            <p className={styles.price}>{converPrice(prijs)}</p>
+            <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
+                <button>
+                    Koop Nu
+                </button>
+                <p className={styles.quantity}>{quantity}</p>
+                <button 
+                    onClick={()=>addOrAbduct(true)} 
+                    className={styles.calc}
+                >+</button>
+                <button 
+                    onClick={()=>addOrAbduct(false)}
+                    className={styles.calc}
+                >-</button>
+            </div>
+        </div>
     )
 }
 
