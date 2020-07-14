@@ -9,7 +9,18 @@ const Product = ({productNaam, prijs, fotoUrl})=>{
         const decimalNumber = String(price).split('.')[1]
         return `€ ${fullNumber},${decimalNumber < 10 && !decimalNumber.includes('0') ? decimalNumber + '0' : decimalNumber}`
     }
-    console.log(quantity)
+
+    const addOrAbduct = (add)=>{
+        if(add){
+            setQuantity(quantity+1)
+        }else{
+            if(quantity === 1){
+                return
+            }else{
+                setQuantity(quantity-1)
+            }
+        }
+    }
 
     return(
         <div
@@ -25,8 +36,14 @@ const Product = ({productNaam, prijs, fotoUrl})=>{
                     Koop Nu
                 </button>
                 <p className={styles.quantity}>{quantity}</p>
-                <button className={styles.calc}>+</button>
-                <button className={styles.calc}>-</button>
+                <button 
+                    onClick={()=>addOrAbduct(true)} 
+                    className={styles.calc}
+                >+</button>
+                <button 
+                    onClick={()=>addOrAbduct(false)}
+                    className={styles.calc}
+                >-</button>
             </div>
         </div>
     )
