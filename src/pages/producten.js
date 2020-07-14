@@ -15,7 +15,8 @@ const Producten = ()=>{
                 totalCount
                 edges{
                     node{
-                    productNaam
+                        id
+                        productNaam
                         foto{
                             file{
                                 url
@@ -33,12 +34,13 @@ const Producten = ()=>{
         <section>
             <h1>Alle Producten ({producten && producten.allContentfulProduct.totalCount})</h1>
             <div className={styles.producten}>
-                {producten && producten.allContentfulProduct.edges.map(({node}, i)=>(
+                {producten && producten.allContentfulProduct.edges.map(({node})=>(
                     <Product
                         productNaam={node.productNaam}
                         fotoUrl={node.foto.file.url}
                         prijs={node.prijs}
-                        key={i}
+                        id={node.id}
+                        key={node.id}
                     />
                 ))}
             </div>

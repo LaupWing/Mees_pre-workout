@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import styles from './product.module.css'
+import {Link} from 'gatsby'
 
-const Product = ({productNaam, prijs, fotoUrl})=>{
+const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const [quantity, setQuantity] = useState(1)
     const [showQuantity, setShowQuantity] = useState(false)
 
@@ -24,31 +25,33 @@ const Product = ({productNaam, prijs, fotoUrl})=>{
     }
 
     return(
-        <div
-            className={styles.product}
-            onMouseEnter={()=>setShowQuantity(true)}
-            onMouseLeave={()=>setShowQuantity(false)}
-        >
-            <h2>{productNaam}</h2>
-            <div>
-                <img alt="afbeelding" src={fotoUrl}/>
+        <Link to={`/producten/${id}`}>
+            <div
+                className={styles.product}
+                onMouseEnter={()=>setShowQuantity(true)}
+                onMouseLeave={()=>setShowQuantity(false)}
+            >
+                <h2>{productNaam}</h2>
+                <div>
+                    <img alt="afbeelding" src={fotoUrl}/>
+                </div>
+                <p className={styles.price}>{converPrice(prijs)}</p>
+                <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
+                    <button>
+                        Koop Nu
+                    </button>
+                    <p className={styles.quantity}>{quantity}</p>
+                    <button 
+                        onClick={()=>addOrAbduct(true)} 
+                        className={styles.calc}
+                    >+</button>
+                    <button 
+                        onClick={()=>addOrAbduct(false)}
+                        className={styles.calc}
+                    >-</button>
+                </div>
             </div>
-            <p className={styles.price}>{converPrice(prijs)}</p>
-            <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
-                <button>
-                    Koop Nu
-                </button>
-                <p className={styles.quantity}>{quantity}</p>
-                <button 
-                    onClick={()=>addOrAbduct(true)} 
-                    className={styles.calc}
-                >+</button>
-                <button 
-                    onClick={()=>addOrAbduct(false)}
-                    className={styles.calc}
-                >-</button>
-            </div>
-        </div>
+        </Link>
     )
 }
 
