@@ -28,7 +28,16 @@ const Producten = ()=>{
     `)
     console.log(producten)
     return(
-        <div><h1>Dit is de Producten pagina</h1></div>
+        <div>
+            <h1>Dit is de Producten pagina</h1>
+            {producten && producten.allContentfulProduct.edges.map(({node}, i)=>(
+                <div
+                    key={i}
+                >
+                    {node.productNaam}
+                </div>
+            ))}
+        </div>
     )
 }
 
