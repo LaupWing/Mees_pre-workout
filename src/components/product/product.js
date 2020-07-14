@@ -24,7 +24,9 @@ const Product = ({productNaam, prijs, fotoUrl})=>{
                 <button>
                     Koop Nu
                 </button>
-                <p>{quantity}</p>
+                <p className={styles.quantity}>{quantity}</p>
+                <button className={styles.calc}>+</button>
+                <button className={styles.calc}>-</button>
             </div>
         </div>
     )

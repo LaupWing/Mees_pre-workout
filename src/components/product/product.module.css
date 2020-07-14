@@ -24,3 +24,22 @@
 .buyNow{
     display: flex;
 }
+
+.buyNow button{
+    text-transform: uppercase;
+    padding: 5px;
+}
+.buyNow button:first-of-type{
+    flex-grow: 1;
+}
+.quantity{
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc{
+    width: 30px;
+    height: 30px;
+    border-right: white solid 1px;
+}
