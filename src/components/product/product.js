@@ -3,6 +3,7 @@ import styles from './product.module.css'
 
 const Product = ({productNaam, prijs, fotoUrl})=>{
     const [quantity, setQuantity] = useState(1)
+    const [showQuantity, setShowQuantity] = useState(false)
 
     const converPrice = (price)=>{
         const fullNumber = String(price).split('.')[0] 
@@ -25,13 +26,15 @@ const Product = ({productNaam, prijs, fotoUrl})=>{
     return(
         <div
             className={styles.product}
+            onMouseEnter={()=>setShowQuantity(true)}
+            onMouseLeave={()=>setShowQuantity(false)}
         >
             <h2>{productNaam}</h2>
             <div>
                 <img alt="afbeelding" src={fotoUrl}/>
             </div>
             <p className={styles.price}>{converPrice(prijs)}</p>
-            <div className={styles.buyNow}>
+            <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
                 <button>
                     Koop Nu
                 </button>

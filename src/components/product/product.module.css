@@ -2,6 +2,7 @@
     width: 250px;
     border: solid 1px #ccc;
     margin: 10px;
+    overflow: hidden;
 }
 .product h2{
     text-align: center;
@@ -23,6 +24,11 @@
 
 .buyNow{
     display: flex;
+    transform: translateY(100%);
+    transition: .5s transform;
+}
+.show{
+    transform: translateY(0)!important;
 }
 
 .buyNow button{
