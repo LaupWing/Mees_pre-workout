@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import styles from './product.module.css'
 import {Link} from 'gatsby'
+import {GlobalDispatchContext} from '../../context/GlobalContext'
 
 const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const [quantity, setQuantity] = useState(1)
     const [showQuantity, setShowQuantity] = useState(false)
+    const dispatch = useContext(GlobalDispatchContext)
 
     const converPrice = (price)=>{
         const fullNumber = String(price).split('.')[0] 
@@ -24,6 +26,13 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
         }
     }
 
+    const addToCart = ()=>{
+        dispatch({
+            type: 'ADD_TO_SHOPPINGCART',
+            value: id
+        })
+    }
+
     return(
         <div
             className={styles.product}
@@ -38,7 +47,7 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
             </div>
             <p className={styles.price}>{converPrice(prijs)}</p>
             <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
-                <button>
+                <button onClick={addToCart}>
                     Koop Nu
                 </button>
                 <p className={styles.quantity}>{quantity}</p>

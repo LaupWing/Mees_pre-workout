@@ -4,16 +4,15 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-    shoppingCart: null 
+    shoppingCart: localStorage.getItem('shopping_cart') ? localStorage.getItem('shopping_cart') :  null 
 }
-console.log(localStorage.getItem('test'))
 
 function reducer(state ,action){
     switch(action.type){
         case 'ADD_TO_SHOPPINGCART':{
+            console.log(action.value)
             return {
-                ...state,
-                shoppingCart: []
+                ...state
             }
         }
         default:
@@ -24,11 +23,11 @@ function reducer(state ,action){
 const GlobalContextProvider = ({children})=>{
     const [state, dispatch] = React.useReducer(reducer, initialState)
     return (
-    <GlobalStateContext.Provider value={state}>
-        <GlobalDispatchContext.Provider value={dispatch}>
-            {children}
-        </GlobalDispatchContext.Provider>
-    </GlobalStateContext.Provider>)
+        <GlobalStateContext.Provider value={state}>
+            <GlobalDispatchContext.Provider value={dispatch}>
+                {children}
+            </GlobalDispatchContext.Provider>
+        </GlobalStateContext.Provider>)
 }
 
 export default GlobalContextProvider
