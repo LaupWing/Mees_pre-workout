@@ -1,0 +1,51 @@
+.product{
+    width: 250px;
+    border: solid 1px #ccc;
+    margin: 10px;
+    overflow: hidden;
+}
+.product h2{
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 0;
+    font-weight: normal;
+}
+
+.product img{
+    width: 100%;
+}
+
+.product .price{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.buyNow{
+    display: flex;
+    transform: translateY(100%);
+    transition: .5s transform;
+}
+.show{
+    transform: translateY(0)!important;
+}
+
+.buyNow button{
+    text-transform: uppercase;
+    padding: 5px;
+}
+.buyNow button:first-of-type{
+    flex-grow: 1;
+}
+.quantity{
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc{
+    width: 30px;
+    height: 30px;
+    border-right: white solid 1px;
+}
