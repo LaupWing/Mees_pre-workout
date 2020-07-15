@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {graphql} from 'gatsby'
+import {GlobalStateContext} from '../context/GlobalContext'
 
 export const query = graphql`
     query($id:String){
@@ -21,7 +22,9 @@ export const query = graphql`
 `
 
 const ProductDetail = ({data})=>{
-    console.log(data)
+    const state = useContext(GlobalStateContext)
+
+    console.log(state)
     return(
         <div>Test</div>
     )
