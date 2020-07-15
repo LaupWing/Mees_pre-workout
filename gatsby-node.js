@@ -15,7 +15,6 @@ module.exports.createPages = async({graphql, actions})=>{
         }
     `)
     res.data.allContentfulProduct.edges.forEach(edge=>{
-        console.log(edge)
         createPage({
             component: productTemplate,
             path: `/producten/${edge.node.id}`,
