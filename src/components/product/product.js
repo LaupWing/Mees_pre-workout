@@ -29,7 +29,8 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const addToCart = ()=>{
         dispatch({
             type: 'ADD_TO_SHOPPINGCART',
-            value: id
+            id,
+            quantity
         })
     }
 

@@ -4,15 +4,31 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-    shoppingCart: localStorage.getItem('shopping_cart') ? localStorage.getItem('shopping_cart') :  null 
+    shoppingCart: localStorage.getItem('shopping_cart') ? localStorage.getItem('shopping_cart') :  [] 
 }
 
 function reducer(state ,action){
     switch(action.type){
         case 'ADD_TO_SHOPPINGCART':{
-            console.log(action.value)
+            let updatedCart
+            if(state.shoppingCart.find(x=>x.id===action.id)){
+                updatedCart = state.shoppingCart.map(x =>{
+                    if(x.id === action.id){
+                        return {
+                            id: x.id,
+                            quantity: x.quantity + action.quantity
+                        }
+                    }
+                })
+            }else{
+                updatedCart = [...state.shoppingCart,{
+                    id: action.id,
+                    quantity: action.quantity
+                }]
+            }
             return {
-                ...state
+                ...state,
+                shoppingCart: updatedCart 
             }
         }
         default:
