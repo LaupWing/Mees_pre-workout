@@ -19,6 +19,7 @@ function reducer(state ,action){
                             quantity: x.quantity + action.quantity
                         }
                     }
+                    return x
                 })
             }else{
                 updatedCart = [...state.shoppingCart,{

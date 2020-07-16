@@ -25,6 +25,7 @@ const ProductDetail = ({data})=>{
     const state = useContext(GlobalStateContext)
 
     console.log(state)
+    console.log(data)
     return(
         <div>Test</div>
     )

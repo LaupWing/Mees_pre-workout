@@ -7,7 +7,7 @@ const Header = () => (
     <header className={styles.header}>
         <ul>
             <Link to="/">
-                <img src={img}/>
+                <img alt="img" src={img}/>
             </Link>
             <li>
                 <Link to="/producten">
