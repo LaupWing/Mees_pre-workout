@@ -24,10 +24,23 @@ const CartItem = (props)=>{
         .edges
         .find(x=>x.node.id===props.item.id)
         .node
-    
+    console.log(props)
     return ( 
         <div className={styles.cartItem}>
-            test
+            <img alt="cart_item" src={product.foto.file.url}/>
+            <div className={styles.info}>
+                <h2>{product.productNaam}</h2>
+                <p>{product.prijs}</p>
+            </div>
+            <div className={styles.quantity}>
+                <p>{props.item.quantity}</p>
+                <button>+</button>
+                <button>-</button>
+            </div>
+            <div className={styles.totalPrice}>
+                <h3>Total Price</h3>
+                <p>{props.item.quantity * product.prijs}</p>
+            </div>
         </div>
     )
 }
