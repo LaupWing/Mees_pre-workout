@@ -1,18 +1,26 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import styles from './product.module.css'
 import {Link} from 'gatsby'
-import {GlobalDispatchContext} from '../../context/GlobalContext'
+import {GlobalDispatchContext, GlobalStateContext} from '../../context/GlobalContext'
 
 const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const [quantity, setQuantity] = useState(1)
     const [showQuantity, setShowQuantity] = useState(false)
+    const [inShoppingQuantity, setInShoppingQuantity] = useState(false)
     const dispatch = useContext(GlobalDispatchContext)
+    const state = useContext(GlobalStateContext)
 
     const converPrice = (price)=>{
         const fullNumber = String(price).split('.')[0] 
         const decimalNumber = String(price).split('.')[1]
         return `€ ${fullNumber},${decimalNumber < 10 && !decimalNumber.includes('0') ? decimalNumber + '0' : decimalNumber}`
     }
+    useEffect(()=>{
+        const inShoppingcart = state.shoppingCart.find(item=>item.id === id) 
+        if(inShoppingcart){
+            setInShoppingQuantity(inShoppingcart.quantity)
+        }
+    },[state.shoppingCart])
 
     const addOrAbduct = (add)=>{
         if(add){
@@ -41,7 +49,8 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
             onMouseLeave={()=>setShowQuantity(false)}
         >
             <h2>{productNaam}</h2>
-            <div>
+            <div className={styles.img_container}>
+                {inShoppingQuantity && <p className={styles.currently}>In winkelwagen: {inShoppingQuantity}</p>}
                 <Link to={`/producten/${id}`}>
                     <img alt="afbeelding" src={fotoUrl}/>
                 </Link>

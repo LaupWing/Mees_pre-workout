@@ -47,3 +47,14 @@
     height: 30px;
     border-right: white solid 1px;
 }
+.img_container{
+    position: relative;
+}
+
+.currently{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    color: var(--success);
+}
