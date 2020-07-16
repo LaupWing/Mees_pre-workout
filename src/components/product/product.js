@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react'
 import styles from './product.module.css'
 import {Link} from 'gatsby'
 import {GlobalDispatchContext, GlobalStateContext} from '../../context/GlobalContext'
+import formatPrice from '../../helpers/formatprice'
 
 const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const [quantity, setQuantity] = useState(1)
@@ -10,11 +11,6 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const dispatch = useContext(GlobalDispatchContext)
     const state = useContext(GlobalStateContext)
 
-    const converPrice = (price)=>{
-        const fullNumber = String(price).split('.')[0] 
-        const decimalNumber = String(price).split('.')[1]
-        return `€ ${fullNumber},${decimalNumber < 10 && !decimalNumber.includes('0') ? decimalNumber + '0' : decimalNumber}`
-    }
     useEffect(()=>{
         const inShoppingcart = state.shoppingCart.find(item=>item.id === id) 
         if(inShoppingcart){
@@ -56,7 +52,7 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
                     <img alt="afbeelding" src={fotoUrl}/>
                 </Link>
             </div>
-            <p className={styles.price}>{converPrice(prijs)}</p>
+            <p className={styles.price}>{formatPrice(prijs)}</p>
             <div className={[styles.buyNow, (showQuantity ? styles.show : '')].join(' ')}>
                 <button onClick={addToCart}>
                     Koop Nu
