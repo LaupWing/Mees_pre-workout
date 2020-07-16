@@ -2,8 +2,9 @@
     width: 100vw;
     background-color: var(--highlight-color);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     color: var(--secundair-font-color);
+    padding: 10px 0;
 }
 .header img{
     width: 50px;
@@ -14,4 +15,26 @@
 }
 .header li{
     margin: 0 1.5rem;
+}
+
+.shoppingCart{
+    position: relative;
+}
+.quantity{
+    position: absolute;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    background-color: var(--success);
+    border-radius: 100px;
+    right: 0;
+    bottom: 0;
+    transform: translate(60%, -50%);
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
 }
