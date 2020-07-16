@@ -4,7 +4,7 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-    shoppingCart: (localStorage && localStorage.getItem('shopping_cart')) ? localStorage.getItem('shopping_cart') :  [] 
+    shoppingCart: (localStorage && localStorage.getItem('shopping_cart')) ? JSON.parse(localStorage.getItem('shopping_cart')) :  [] 
 }
 
 function reducer(state ,action){
@@ -27,6 +27,7 @@ function reducer(state ,action){
                     quantity: action.quantity
                 }]
             }
+            localStorage.setItem('shopping_cart', JSON.stringify(updatedCart))
             return {
                 ...state,
                 shoppingCart: updatedCart 
