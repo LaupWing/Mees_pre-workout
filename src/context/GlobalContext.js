@@ -11,9 +11,13 @@ function reducer(state ,action){
     switch(action.type){
         case 'MODIFY_SHOPPINGCART':{
             let updatedCart
+            console.log(action)
             if(state.shoppingCart.find(x=>x.id===action.id)){
                 updatedCart = state.shoppingCart.map(x =>{
                     if(x.id === action.id){
+                        if(x.quantity  === 1 && !action.add){
+                            return x
+                        }
                         return {
                             id: x.id,
                             quantity: action.add ? x.quantity + action.quantity : x.quantity - action.quantity
