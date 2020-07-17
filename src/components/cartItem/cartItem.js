@@ -55,6 +55,7 @@ const CartItem = (props)=>{
                         quantity: 1,
                         add: false
                     })}
+                    className={props.item.quantity === 1 ? styles.disabled : ''}
                 >
                     -
                 </button>
