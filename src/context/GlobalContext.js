@@ -9,19 +9,22 @@ const initialState = {
 
 function reducer(state ,action){
     switch(action.type){
-        case 'ADD_TO_SHOPPINGCART':{
+        case 'MODIFY_SHOPPINGCART':{
             let updatedCart
             if(state.shoppingCart.find(x=>x.id===action.id)){
                 updatedCart = state.shoppingCart.map(x =>{
                     if(x.id === action.id){
                         return {
                             id: x.id,
-                            quantity: x.quantity + action.quantity
+                            quantity: action.add ? x.quantity + action.quantity : x.quantity - action.quantity
                         }
                     }
                     return x
                 })
             }else{
+                if(!action.add){
+                    return
+                }
                 updatedCart = [...state.shoppingCart,{
                     id: action.id,
                     quantity: action.quantity

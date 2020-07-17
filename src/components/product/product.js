@@ -16,7 +16,7 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
         if(inShoppingcart){
             setInShoppingQuantity(inShoppingcart.quantity)
         }
-    },[state.shoppingCart])
+    },[state.shoppingCart, id])
 
     const addOrAbduct = (add)=>{
         if(add){
@@ -33,9 +33,10 @@ const Product = ({productNaam, prijs, fotoUrl, id})=>{
     const addToCart = ()=>{
         setQuantity(1)
         dispatch({
-            type: 'ADD_TO_SHOPPINGCART',
+            type: 'MODIFY_SHOPPINGCART',
             id,
-            quantity
+            quantity,
+            add: true
         })
     }
 

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import styles from './cartItem.module.css'
 import formatPrice from '../../helpers/formatprice'
+import {GlobalDispatchContext} from '../../context/GlobalContext'
 
 const CartItem = (props)=>{
+    const dispatch = useContext(GlobalDispatchContext)
+    
     const product = useStaticQuery(graphql`
         query{
             allContentfulProduct{
@@ -25,7 +28,7 @@ const CartItem = (props)=>{
         .edges
         .find(x=>x.node.id===props.item.id)
         .node
-    console.log(props)
+    
     return ( 
         <div className={styles.cartItem}>
             <img alt="cart_item" src={product.foto.file.url}/>
