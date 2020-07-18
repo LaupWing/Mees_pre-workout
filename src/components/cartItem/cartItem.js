@@ -62,7 +62,7 @@ const CartItem = (props)=>{
             </div>
             <div className={styles.totalPrice}>
                 <h3>Total Price</h3>
-                <p>{formatPrice(props.item.quantity * product.prijs)}</p>
+                <p>{formatPrice(Math.round(props.item.quantity * product.prijs*100)/100)}</p>
             </div>
         </div>
     )
